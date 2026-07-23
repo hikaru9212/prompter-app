@@ -695,7 +695,7 @@ function GenerateModal({ onGenerated, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-end z-50" onClick={!loading ? onClose : undefined}>
-      <div className="w-full bg-gray-950 rounded-t-3xl p-5" style={{maxHeight:'85vh',overflowY:'auto',WebkitOverflowScrolling:'touch'}} onClick={e => e.stopPropagation()}>
+      <div className="w-full bg-gray-950 rounded-t-3xl p-5" style={{height:'85vh',overflowY:'scroll',WebkitOverflowScrolling:'touch'}} onClick={e => e.stopPropagation()}>
         <h2 className="text-white font-bold text-xl mb-3 shrink-0">AIで台本を生成</h2>
 
         {loading ? (
@@ -887,7 +887,7 @@ ${JSON.stringify(fw.sections.reduce((o, s) => ({ ...o, [s.key]: s.label }), { ti
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-end z-50" onClick={!loading ? onClose : undefined}>
-      <div className="w-full bg-gray-950 rounded-t-3xl p-5" style={{maxHeight:'85vh',overflowY:'auto',WebkitOverflowScrolling:'touch'}} onClick={e => e.stopPropagation()}>
+      <div className="w-full bg-gray-950 rounded-t-3xl p-5" style={{height:'85vh',overflowY:'scroll',WebkitOverflowScrolling:'touch'}} onClick={e => e.stopPropagation()}>
         <h2 className="text-white font-bold text-xl mb-1 shrink-0">別シーンで再生成</h2>
         <p className="text-gray-500 text-sm mb-3 shrink-0">テーマ：{script.name || script.theme}</p>
 
