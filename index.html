@@ -767,7 +767,7 @@ function GenerateModal({ onGenerated, onClose }) {
             </div>
 
             {showPresets ? (
-              <div className="flex-1 overflow-y-auto space-y-2 pb-2" style={{WebkitOverflowScrolling:'touch',minHeight:0}}>
+              <div className="overflow-y-auto space-y-2 pb-2" style={{WebkitOverflowScrolling:'touch',height:'35vh'}}>
                 <p className="text-gray-500 text-xs mb-2 shrink-0">銀座行動経済大学校 基礎コース（全50テーマ）</p>
                 {PRESET_TOPICS.map(t => (
                   <button
