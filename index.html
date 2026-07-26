@@ -977,7 +977,7 @@ function ListScreen({ scripts, onSelect, onEdit, onNew, onGenerate, onDelete, on
 // ─── プロンプター画面 ────────────────────────────────────────────
 function PrompterScreen({ script, onBack }) {
   const [playing, setPlaying] = useState(false);
-  const [speed, setSpeed] = useState(2);
+  const [speed, setSpeed] = useState(1);
   const [fontSize, setFontSize] = useState('medium');
   const [mirror, setMirror] = useState(false);
   const scrollRef = useRef(null);
