@@ -767,7 +767,7 @@ function GenerateModal({ onGenerated, onClose }) {
             </div>
 
             {showPresets ? (
-              <div className="space-y-2 pb-2">
+              <div className="space-y-2 pb-2" style={{height:'300px',overflowY:'scroll',WebkitOverflowScrolling:'touch'}}>
                 <p className="text-gray-500 text-xs mb-2 shrink-0">銀座行動経済大学校 基礎コース（全50テーマ）</p>
                 {PRESET_TOPICS.map(t => (
                   <button
@@ -1004,7 +1004,7 @@ function PrompterScreen({ script, onBack }) {
   const fw = FRAMEWORKS.find(f => f.key === (script.frameworkKey || 'default')) || FRAMEWORKS[0];
 
   return (
-    <div className={`h-screen bg-black flex flex-col ${mirror ? 'mirror' : ''}`}>
+    <div className={`min-h-screen bg-black flex flex-col ${mirror ? 'mirror' : ''}`} style={{height:'100dvh'}}>
       <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-800 shrink-0">
         <button onClick={onBack} className="text-gray-400 text-2xl leading-none active:text-white transition-colors px-1">←</button>
         <div className="flex-1 min-w-0">
@@ -1015,7 +1015,7 @@ function PrompterScreen({ script, onBack }) {
           </div>
         </div>
       </div>
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-6 space-y-10">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-6 space-y-10" style={{overflowY:'scroll',touchAction:'none'}}>
         {fw.sections.map(sec => {
           const text = script[sec.key];
           if (!text) return null;
