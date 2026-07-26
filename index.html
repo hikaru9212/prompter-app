@@ -977,19 +977,25 @@ function ListScreen({ scripts, onSelect, onEdit, onNew, onGenerate, onDelete, on
 // ─── プロンプター画面 ────────────────────────────────────────────
 function PrompterScreen({ script, onBack }) {
   const [playing, setPlaying] = useState(false);
-  const [speed, setSpeed] = useState(1);
+  const [speed, setSpeed] = useState(0.5);
   const [fontSize, setFontSize] = useState('medium');
   const [mirror, setMirror] = useState(false);
   const scrollRef = useRef(null);
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
+  const accumRef = useRef(0);
   const fontClass = FONT_SIZES[fontSize];
 
   const tick = useCallback((timestamp) => {
     if (!lastTimeRef.current) lastTimeRef.current = timestamp;
     const delta = timestamp - lastTimeRef.current;
     lastTimeRef.current = timestamp;
-    if (scrollRef.current) scrollRef.current.scrollBy({top: (speed * delta) / 16, behavior: 'instant'});
+    accumRef.current += (speed * delta) / 16;
+    if (accumRef.current >= 1) {
+      const px = Math.floor(accumRef.current);
+      accumRef.current -= px;
+      if (scrollRef.current) scrollRef.current.scrollTop += px;
+    }
     rafRef.current = requestAnimationFrame(tick);
   }, [speed]);
 
